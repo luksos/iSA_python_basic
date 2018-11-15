@@ -2,7 +2,9 @@ name = ''
 while name == '':
     name = input("Hej, jak masz na imię?: ")
 # name = name.strip(' ')
-name = name.replace(' ', '')
+bad_characters = [' ', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+', '?', '/', '[', ']', ':', ';']
+for i in bad_characters:
+    name = name.replace(i, '')
 name_length = len(name)
 # last_character = name[name_length-1]
 last_character = name[-1]
