@@ -1,25 +1,20 @@
 """
-Napisz program do sprawdzania czy liczba jest podzielne przez 3 i 5 i 7
+Napisz program do sprawdzania czy podany rok jest rokiem przestępnym.
 """
 
-number = 'wrong_input'
-while number == 'wrong_input':
+year = 'wrong_input'
+while year == 'wrong_input':
     try:
-        number = int(input("\nPodaj dowolną liczbę całkowitą: "))
+        year = int(input("\nPodaj dowolną liczbę całkowitą: "))
     except ValueError:
-        number = 'wrong_input'
-
-check_3 = number%3
-check_5 = number%5
-check_7 = number%7
-
-check = [check_3, check_5, check_7]
+        year = 'wrong_input'
 
 print('')
-if check == [0, 0, 0]:
-    print("\t Podana przez Ciebie liczba jest podzielna jednocześnie przez 3, 5 i 7.")
+check_1 = year%4
+check_2 = year%100
+check_3 = year%400
+
+if check_1 == 0 and check_2 != 0 or check_3 == 0:
+    print("\t Podany przez Ciebie rok %i jest rokiem przestępnym." % year)
 else:
-    print("\t Podana przez Ciebie liczba NIE jest podzielna jednocześnie przez 3, 5 i 7")
-print("\t\t%i : 3 = %.2f" % (number, (number/3)))
-print("\t\t%i : 5 = %.2f" % (number, (number/5)))
-print("\t\t%i : 7 = %.2f" % (number, (number/7)))
+    print("\t Podany przez Ciebie rok %i NIE jest rokiem przestępnym." % year)

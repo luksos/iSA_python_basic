@@ -1,41 +1,24 @@
 """
-Napisz program, który rysuje prostokąt o zadanych rozmiarach (wysokość i szerokość) za pomocą znaków:
-    | (bok)
-    - (góra/dół)
-    + (wierzchołek)
+Napisz program do przeliczania liczby zapisanej w formacie binarnym na system dziesiętny.
+Załóż że wpisywane jest zawsze tylko 6 znaków 0/1, np 000110, 110010, 111111 etc.
 """
 
-dimensions = []
-draw_elements = ['|', '-', '+', ' ']
+binary_number = 0
+while binary_number == 0:
+    try:
+        binary_number = input("Podaj dowolną liczbę w zapisie binarnym (tylko 6 znaków): ")
+        int_test = int(binary_number)
+        if len(binary_number) != 6:
+            binary_number = 0
+    except ValueError:
+        binary_number = 0
 
-for i in range(2):
-    if i == 0:
-        which_dimension = 'wysokość'
-    else:
-        which_dimension = 'szerokość'
-    dimension = 0
-    while dimension == 0:
-        try:
-            dimension = int(input("Podaj %s prostokąta: " % which_dimension))
-        except ValueError:
-            dimension = 0
-    dimensions.append(dimension)
+decimal_number = 0
+for i in range(6):
+    calculation = int(binary_number[-(i+1)])
+    calculation = calculation * 2 ** i
+    decimal_number += calculation
 
-
-print('\nRysunek prostokąta o wymiarach ' + str(dimensions[1]) + 'x' + str(dimensions[0]) + ' wygląda tak:\n')
-
-for y in range(dimensions[0]):
-    print('\t', end='')
-    for x in range(dimensions[1]):
-        if (x == 0 and y == 0) or (x == 0 and y == dimensions[0]-1):
-            print(draw_elements[2], end='')
-        elif (x == dimensions[1]-1 and y == 0) or (x == dimensions[1]-1 and y == dimensions[0]-1):
-            print(draw_elements[2])
-        elif y == 0 or y == dimensions[0]-1:
-            print(draw_elements[1], end='')
-        elif x == 0:
-            print(draw_elements[0], end='')
-        elif x == dimensions[1]-1:
-            print(draw_elements[0])
-        else:
-            print(draw_elements[3], end='')
+print("\n\tLiczba w zapisie binarnym:\t\t%s" % binary_number)
+print("\tLiczba w zapisie dziesiętnym:\t%i" % decimal_number)
+print("\tSprawdzenie - przeliczenie powrotne za pomocą wbudowanej funkcji: " + str(bin(decimal_number)))
