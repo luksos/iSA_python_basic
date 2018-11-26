@@ -46,9 +46,10 @@ def nested_list(input_list):
                     x[index_2] = y
                 index_2 += 1
             input_list[index_1] = x
+            if index_2 >= rows:
+                rows = index_2
         index_1 += 1
-        if index_1 >= rows:
-            rows = index_1
+
     return input_list, rows
 
 def max_length(input_list):
