@@ -1,0 +1,10 @@
+
+WYNIKI ANALIZY:
+- znakow w sumie:				1273
+- duzych liter:					27
+- malych liter:					1005
+- cyfr:							0
+- znakow interpunkcyjnych:		42
+- spacji i znakow specjalnych:	199
+- slow:							200
+- zdan:							27
