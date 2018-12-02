@@ -1,0 +1,3 @@
+To jest plik tekstowy
+To jest jego druga linijka
+tak naprawde nie ma tu nic ciekawego
