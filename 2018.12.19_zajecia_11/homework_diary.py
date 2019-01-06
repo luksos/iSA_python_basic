@@ -14,11 +14,8 @@ from email.mime.multipart import MIMEMultipart
 plik_dziennika = 'dziennik.dz'
 
 class Dziennik(object):
-    def __init__(self, plik_dz):
-        self.plik_dz = plik_dz
-        # self.plik_dz = Dziennik.otworz_dziennik(self)
-        # self.plik_dziennika = plik_dziennika
-        pass
+    def __init__(self):
+        self.plik_dz = Dziennik.otworz_dziennik(self)
 
     def otworz_dziennik(self):
         """
