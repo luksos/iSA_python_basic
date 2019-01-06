@@ -35,7 +35,7 @@ class Student(Czlowiek):
     pass
 
 class Bokser(Pies):
-    def __init__(self, ):
+    def __init__(self):
         super(Bokser, self).__init__(ilosc_nog=666)
         self.nazwa = 'blabla'
 

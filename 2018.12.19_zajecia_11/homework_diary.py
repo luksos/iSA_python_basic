@@ -6,10 +6,8 @@ Funkcja zapytaj() niech będzie poza klasą i steruje programem czyli wywoływan
 """
 
 import pickle
-import smtplib
 import pprint
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import iSA_python_basic.modules.send_mail as mail
 
 plik_dziennika = 'dziennik.dz'
 
@@ -93,31 +91,11 @@ class Dziennik(object):
             tresc = "Usunięto wpis o indeksie: {}".format(indeks_do_usuniecia)
             tresc = tresc + "\na dla użytkownika jest to wpis numer: {}".format(wpis_do_usuniecia)
 
-            self.wyslij_mail(temat, tresc)
+            mail.wyslij_mail(temat, tresc)
             pickle.dump(wpisy, self.plik_dz)
             print("Właśnie usunąłem wpis")
         else:
             print("Nie ma takiego wpisu")
-
-    def wyslij_mail(self, temat, tresc):
-        """
-        Funkcaj która wysła maila o określonym temacie i treści do "isapy@o2.pl"
-        """
-
-        mail = MIMEMultipart()
-        mail["Subject"] = temat
-        mail["To"] = 'isapy@o2.pl'
-        mail["From"] = 'isapy@int.pl'
-
-        body = MIMEText(tresc)
-        mail.attach(body)
-
-        serwer = smtplib.SMTP('poczta.int.pl')
-        serwer.login('isapy@int.pl', 'isapython;')
-        serwer.send_message(mail)
-        serwer.quit()
-
-        print("Wysłano mail!")
 
     def wyszukaj(self):
         """
