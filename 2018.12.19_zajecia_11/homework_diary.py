@@ -1,4 +1,5 @@
 """
+ === SLABO ZROBIONE ===
 Przepisanie dziennika z zajęć 7-9 na wersję obiektową.
 Proponuje zrobić klasę "Dziennik" a w atrybutach np trzymać handler do otwartego pliku (plik_dz), wpisy.
 Dzięki temu np gdy otworzymy plik w konstruktorze do będziemy mieli handler dostępny w każdej metodzie obiektu.
